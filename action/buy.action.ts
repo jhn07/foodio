@@ -26,8 +26,8 @@ export const buyProducts = async (products: any, formData: FormData) => {
     payment_method_types: ["card"],
     line_items: lineItems,
     mode: "payment",
-    success_url: "http://localhost:3000/payment/success",
-    cancel_url: "http://localhost:3000/payment/cancel"
+    success_url: `${process.env.SUCCESS_URL as string}`,
+    cancel_url: `${process.env.CANCEL_URL as string}`
   })
 
 
@@ -67,8 +67,8 @@ export const buyProduct = async (formData: FormData) => {
       quantity: 1
     }],
     mode: "payment",
-    success_url: "http://localhost:3000/payment/success",
-    cancel_url: "http://localhost:3000/payment/cancel"
+    success_url: `${process.env.SUCCESS_URL as string}`,
+    cancel_url: `${process.env.CANCEL_URL as string}`
   })
 
   return redirect(session.url as string)
